@@ -18,16 +18,13 @@
 ### 缩进
 统一两个空格缩进，不要使用 Tab 或者 Tab、空格混搭！
 ### 一律使用小写字母
-除了颜色外，其它一致使用小写字母
+一致使用小写字母
 ``` html
 <!-- bad -->
 <TITLE>合康医生</TITLE>
 
 <!-- good -->
 <title>合康医生</title>
-```
-``` css
-head{color:#DBDBDB};
 ```
 ### 注释
 - HTML
@@ -146,7 +143,7 @@ HTML 属性应该按照特定的顺序出现以保证易读性。
 ```
 ###布尔值属性
 HTML5 规范中 disabled、checked、selected 等属性不用设置值。
-```html
+``` html
 <input type="text" disabled>
 
 <input type="checkbox" value="1" checked>
@@ -155,6 +152,78 @@ HTML5 规范中 disabled、checked、selected 等属性不用设置值。
   <option value="1" selected>1</option>
 </select>
 ```
- 
 
+## CSS
+###规范说明
+- 用两个空格来代替制表符（tab） -- 这是唯一能保证在所有环境下获得一致展现的方法。
+- 避免选择器嵌套层级过多，不能多于`3`级；
+- 为选择器分组时，将单独的选择器单独放在一行。
+- 为了代码的易读性，在每个声明块的左花括号前添加一个空格。
+- 声明块的右花括号应当单独成行。
+- 每条声明语句的 : 后应该插入一个空格。
+- 为了获得更准确的错误报告，每条声明都应该独占一行。
+- 所有声明语句都应当以分号结尾。最后一条声明语句后面的分号是可选的，但是，如果省略这个分号，你的代码可能更易出错.
+- 不要在 rgb()、rgba()、hsl()、hsla() 或 rect() - - 值的内部的逗号后面插入空格。这样利于从多个属性值（既加逗号也加空格）中区分多个颜色值（只加逗号，不加空格）。
+- 对于属性值或颜色参数，省略小于 1 的小数前面的 0 （例如，.5 代替 0.5；-.5px 代替 -0.5px）。
+- 十六进制值应该全部小写，例如，#fff。在扫描文档时，小写字符易于分辨，因为他们的形式更易于区分。
+- 使用简写形式的十六进制值，例如，用 #fff 代替 #ffffff。
+- 为选择器中的属性添加双引号，例如，input[type="text"]。只有在某些情况下是可选的，但是，为了代码的一致性，建议都加上双引号。
+- 避免为 0 值指定单位，例如，用 margin: 0; 代替 margin: 0px;。
+``` css
+/* bad */
+.selector, .selector-secondary, .selector[type=text] {
+  padding:15px;
+  margin:0px 0px 15px;
+  background-color:rgba(0, 0, 0, 0.5);
+  box-shadow:0px 1px 2px #CCC,inset 0 1px 0 #FFFFFF
+}
 
+/* good */
+.selector,
+.selector-secondary,
+.selector[type="text"] {
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: rgba(0,0,0,.5);
+  box-shadow: 0 1px 2px #ccc, inset 0 1px 0 #fff;
+}
+```
+### 声明顺序
+相关的属性声明应当归为一组，并按照下面的顺序排列：
+
+1. Positioning
+2. Box model
+3. Typographic
+4. Visual
+
+``` css
+.declaration-order {
+  /* Positioning */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+
+  /* Box-model */
+  display: block;
+  float: right;
+  width: 100px;
+  height: 100px;
+
+  /* Typography */
+  font: normal 13px "Helvetica Neue", sans-serif;
+  line-height: 1.5;
+  color: #333;
+  text-align: center;
+
+  /* Visual */
+  background-color: #f5f5f5;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+
+  /* Misc */
+  opacity: 1;
+}
+```
