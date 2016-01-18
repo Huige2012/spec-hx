@@ -227,3 +227,142 @@ HTML5 规范中 disabled、checked、selected 等属性不用设置值。
   opacity: 1;
 }
 ```
+
+### 不要使用 @import
+与 <link> 相比，@import 要慢很多，不光增加额外的请求数，还会导致不可预料的问题。
+
+替代办法：
+
+- 使用多个 元素；
+- 通过 Sass 或 Less 类似的 CSS 预处理器将多个 CSS 文件编译为一个文件；
+- 其他 CSS 文件合并工具；
+
+### 媒体查询（Media query）的位置
+将媒体查询放在尽可能相关规则的附近。不要将他们打包放在一个单一样式文件中或者放在文档底部。如果你把他们分开了，将来只会被大家遗忘。
+``` css
+.element { ... }
+.element-avatar { ... }
+.element-selected { ... }
+
+@media (max-width: 768px) {
+  .element { ...}
+  .element-avatar { ... }
+  .element-selected { ... }
+}
+```
+### 带前缀的属性
+当使用特定厂商的带有前缀的属性时，通过缩进的方式，让每个属性的值在垂直方向对齐，这样便于多行编辑。
+``` css
+/* Prefixed properties */
+.selector {
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+          box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+```
+
+## javascript
+### 注释
+
+#### 原则
+
+> 如无必有，勿增注释； 如有必要，必须详细！
+
+#### 单行注释
+
+必须独占一行。// 后跟一个空格，缩进与下一行被注释说明的代码一致。
+
+#### 多行注释
+
+避免使用 /*...*/ 这样的多行注释。有多行注释内容时，使用多个单行注释。
+
+#### 函数/方法注释
+
+- 函数/方法注释必须包含函数说明，有参数和返回值时必须使用注释标识。；
+- 参数和返回值注释必须包含类型信息和说明；
+- 当函数是内部函数，外部不可访问时，可以使用 @inner 标识；
+``` javascript
+/**
+ * 函数描述
+ *
+ * @param {string} p1 参数1的说明
+ * @param {string} p2 参数2的说明，比较长
+ *     那就换行了.
+ * @param {number=} p3 参数3的说明（可选）
+ * @return {Object} 返回值描述
+ */
+function foo(p1, p2, p3) {
+    var p3 = p3 || 10;
+    return {
+        p1: p1,
+        p2: p2,
+        p3: p3
+    };
+}
+```
+
+#### 文件注释
+
+文件注释用于告诉不熟悉这段代码的读者这个文件中包含哪些东西。 应该提供文件的大体内容, 它的作者, 依赖关系和兼容性信息。如下:
+``` javascript
+/**
+ * @fileoverview Description of file, its uses and information
+ * about its dependencies.
+ * @author user@meizu.com (Firstname Lastname)
+ * Copyright 2009 Meizu Inc. All Rights Reserved.
+ */
+```
+### 命名
+
+**变量**, 使用 Camel 命名法。
+``` javascript
+var loadingModules = {};
+```
+
+***私有属性、变量和方法*** 以下划线 _ 开头。
+``` javascript
+var _privateMethod = {};
+```
+
+**常量**, 使用全部字母大写，单词间下划线分隔的命名方式。
+
+``` javascript
+var HTML_ENTITY = {};
+```
+
+**函数**, 使用 Camel 命名法。
+函数的参数, 使用 Camel 命名法。
+
+``` javascript
+function stringFormat(source) {}
+
+function hear(theBells) {}
+```
+
+
+- **类**, 使用 **Pascal** 命名法
+- 类的 方法 / 属性, 使用 Camel 命名法
+
+``` javascript
+function TextNode(value, engine) {
+    this.value = value;
+    this.engine = engine;
+}
+
+TextNode.prototype.clone = function () {
+    return this;
+};
+```
+
+- **枚举变量** 使用 **Pascal** 命名法。
+- **枚举的属性**， 使用全部字母大写，单词间下划线分隔的命名方式。
+var TargetState = {
+    READING: 1,
+    READED: 2,
+    APPLIED: 3,
+    READY: 4
+};
+
+
+
+
+
