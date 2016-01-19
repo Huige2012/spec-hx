@@ -1,14 +1,10 @@
 # hx前端编码规范 
 
----
-
 1. 基本规则
 2. html
 3. css
 4. javascript
 
-
-[TOC]
 
 ## 前言
 
@@ -145,7 +141,7 @@ HTML 属性应该按照特定的顺序出现以保证易读性。
 - src, for, type, href
 - title, alt
 - aria-xxx, role
-- 
+
 ``` html
 <a class="..." id="..." data-modal="toggle" href="###"></a>
 
