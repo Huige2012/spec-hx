@@ -1,24 +1,36 @@
 # hx前端编码规范 
 
+---
+
 1. 基本规则
 2. html
 3. css
 4. javascript
 
-[TOC] 
+
+[TOC]
 
 ## 前言
+
 此规范主要实现的目标：代码一致性和最佳实践。通过代码风格的一致性，降低维护代码的成本以及改善多人协作的效率。同时遵守最佳实践，确保页面性能得到最佳优化和高效的代码。
-> **黄金定律: 不管有多少人共同参与同一项目，一定要确保每一行代码都像是同一个人编写的。**
+
+> 黄金定律: 不管有多少人共同参与同一项目，一定要确保每一行代码都像是同一个人编写的。
 
 
 ## 基本规则：
+
 ### 结构、样式、行为分离
+
 尽量确保文档和模板只包含 HTML 结构，样式都放到样式表里，行为都放到脚本里。
+
 ### 缩进
+
 统一两个空格缩进，不要使用 Tab 或者 Tab、空格混搭！
+
 ### 一律使用小写字母
+
 一致使用小写字母
+
 ``` html
 <!-- bad -->
 <TITLE>合康医生</TITLE>
@@ -27,7 +39,10 @@
 <title>合康医生</title>
 ```
 ### 注释
+
 - HTML
+
+
 ``` html 
 <!-- 模块注释 -->
 <div class="article-list">
@@ -43,7 +58,9 @@
 ...
 </div>
 ```
+
 - CSS （组件块和子组件块以及声明块之间使用一空行分隔，子组件块之间三空行分隔；）
+
 ``` css
 
 /* ==========================================================================
@@ -69,6 +86,7 @@
   display: span;
 }
 ``` 
+
 - javascript
 
 ``` javascript
@@ -103,6 +121,7 @@ function foo(p1, p2, p3) {
 ```
 
 ## HTML
+
 ### class 与 id
 - class 应以功能或内容命名，不以表现形式命名；
 - class 与 id 单词字母小写，多个单词组成时，采用中划线-分隔；
@@ -117,6 +136,7 @@ function foo(p1, p2, p3) {
 ```
 
 ### 属性顺序
+
 HTML 属性应该按照特定的顺序出现以保证易读性。
 - class  
 - id
@@ -125,6 +145,7 @@ HTML 属性应该按照特定的顺序出现以保证易读性。
 - src, for, type, href
 - title, alt
 - aria-xxx, role
+- 
 ``` html
 <a class="..." id="..." data-modal="toggle" href="###"></a>
 
@@ -132,8 +153,11 @@ HTML 属性应该按照特定的顺序出现以保证易读性。
 
 <img src="..." alt="...">
 ```
+
 ### 引号
+
 属性的定义，统一使用双引号。
+
 ``` 
 <!-- bat -->
 <span class=text  id='j-hook'>Google</span>
@@ -141,8 +165,11 @@ HTML 属性应该按照特定的顺序出现以保证易读性。
 <!-- good -->
 <span class="text"  id="j-hook">Google</span>
 ```
+
 ###布尔值属性
+
 HTML5 规范中 disabled、checked、selected 等属性不用设置值。
+
 ``` html
 <input type="text" disabled>
 
@@ -154,6 +181,7 @@ HTML5 规范中 disabled、checked、selected 等属性不用设置值。
 ```
 
 ## CSS
+
 ###规范说明
 - 用两个空格来代替制表符（tab） -- 这是唯一能保证在所有环境下获得一致展现的方法。
 - 避免选择器嵌套层级过多，不能多于`3`级；
@@ -169,6 +197,7 @@ HTML5 规范中 disabled、checked、selected 等属性不用设置值。
 - 使用简写形式的十六进制值，例如，用 #fff 代替 #ffffff。
 - 为选择器中的属性添加双引号，例如，input[type="text"]。只有在某些情况下是可选的，但是，为了代码的一致性，建议都加上双引号。
 - 避免为 0 值指定单位，例如，用 margin: 0; 代替 margin: 0px;。
+
 ``` css
 /* bad */
 .selector, .selector-secondary, .selector[type=text] {
@@ -188,7 +217,9 @@ HTML5 规范中 disabled、checked、selected 等属性不用设置值。
   box-shadow: 0 1px 2px #ccc, inset 0 1px 0 #fff;
 }
 ```
+
 ### 声明顺序
+
 相关的属性声明应当归为一组，并按照下面的顺序排列：
 
 1. Positioning
@@ -229,6 +260,7 @@ HTML5 规范中 disabled、checked、selected 等属性不用设置值。
 ```
 
 ### 不要使用 @import
+
 与 <link> 相比，@import 要慢很多，不光增加额外的请求数，还会导致不可预料的问题。
 
 替代办法：
@@ -238,7 +270,9 @@ HTML5 规范中 disabled、checked、selected 等属性不用设置值。
 - 其他 CSS 文件合并工具；
 
 ### 媒体查询（Media query）的位置
+
 将媒体查询放在尽可能相关规则的附近。不要将他们打包放在一个单一样式文件中或者放在文档底部。如果你把他们分开了，将来只会被大家遗忘。
+
 ``` css
 .element { ... }
 .element-avatar { ... }
@@ -250,7 +284,9 @@ HTML5 规范中 disabled、checked、selected 等属性不用设置值。
   .element-selected { ... }
 }
 ```
+
 ### 带前缀的属性
+
 当使用特定厂商的带有前缀的属性时，通过缩进的方式，让每个属性的值在垂直方向对齐，这样便于多行编辑。
 ``` css
 /* Prefixed properties */
@@ -260,7 +296,8 @@ HTML5 规范中 disabled、checked、selected 等属性不用设置值。
 }
 ```
 
-## javascript
+## JavaScript
+
 ### 注释
 
 #### 原则
@@ -362,7 +399,7 @@ var TargetState = {
     READY: 4
 };
 
-
+[TOC]
 
 
 
