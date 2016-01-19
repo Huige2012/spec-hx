@@ -59,9 +59,8 @@ src/
 如：合康诊所PC端的页面就在`page/platform`里面，对应的js文件在`scripts/platform`里面，css与图片亦是如此。
 
 
-- 文件命名统一用小写字母与中划线的组合，如 `people-detail.js` `hk-base.css` 
+- 文件命名统一用小写字母与中划线的组合，如 `people-detail.js` `hk-base.css`
 - 插件统一放在 `scripts/tool` 里面 
--  
 
 
 
