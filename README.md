@@ -23,27 +23,27 @@ src/
       webapp/
          images/
             platform/
-               logo.png
-               ...
+               （pc-图片）
             wapapp/
-               logo.png
-               ...
+               （wx-图片）
          scripts/
             platform/
-               index.js
-               ...
+               （pc-js）
             wapapp/
-               index.js
-               ...
+               （wx-js）
          styles/
             palotform/
-               base.css
+               （pc-css）
             wapapp/
+               （wx-css）
          WEB-INF/
             lib/
             page/
                platform/  
+                  (pc-jsp)
                webapp/
+                  （wx-jsp）
+                  
 ```
 
 页面文件都统一在`src/main/webapp/` 里面
@@ -55,8 +55,15 @@ src/
 - `WEB-INF/page`       --页面文件
 
 目前的项目有 `platform` 与 `wapapp`,对应 `pc端` 与 `微信端`
+
 如：合康诊所PC端的页面就在`page/platform`里面，对应的js文件在`scripts/platform`里面，css与图片亦是如此。
-编写项目时，严格将对应页面的文件放在对应文件夹里！
+
+
+- 文件命名统一用小写字母与中划线的组合，如 `people-detail.js` `hk-base.css` 
+- 插件统一放在 `scripts/tool` 里面 
+-  
+
+
 
 ## 基本规则：
 
