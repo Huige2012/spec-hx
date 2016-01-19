@@ -1,9 +1,11 @@
 # hx前端编码规范 
 
-1. 基本规则
-2. html
-3. css
-4. javascript
+1. 文件目录
+2. 基本规则
+3. html
+4. css
+5. javascript
+6. 文件目录
 
 
 ## 前言
@@ -12,12 +14,56 @@
 
 > 黄金定律: 不管有多少人共同参与同一项目，一定要确保每一行代码都像是同一个人编写的。
 
+## 文件目录
+```
+src/
+   main/
+      java/
+      resources/
+      webapp/
+         images/
+            platform/
+               logo.png
+               ...
+            wapapp/
+               logo.png
+               ...
+         scripts/
+            platform/
+               index.js
+               ...
+            wapapp/
+               index.js
+               ...
+         styles/
+            palotform/
+               base.css
+            wapapp/
+         WEB-INF/
+            lib/
+            page/
+               platform/  
+               webapp/
+```
+
+页面文件都统一在`src/main/webapp/` 里面
+
+目录如下：
+- `images`             --图片
+- `scripts`            --js文件
+- `styles`             --样式文件
+- `WEB-INF/page`       --页面文件
+
+目前的项目有 `platform` 与 `wapapp`,对应 `pc端` 与 `微信端`
+如：合康诊所PC端的页面就在`page/platform`里面，对应的js文件在`scripts/platform`里面，css与图片亦是如此。
+编写项目时，严格将对应页面的文件放在对应文件夹里！
 
 ## 基本规则：
 
 ### 结构、样式、行为分离
 
-尽量确保文档和模板只包含 HTML 结构，样式都放到样式表里，行为都放到脚本里。
+确保文档和模板只包含 HTML 结构，样式都放到样式表里，行为都放到脚本里。
+
 
 ### 缩进
 
@@ -395,7 +441,11 @@ var TargetState = {
     READY: 4
 };
 
-[TOC]
+
+
+
+
+
 
 
 
