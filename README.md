@@ -449,7 +449,9 @@ var TargetState = {
 
 
 
-
+### 参考
+- [编码规范](http://codeguide.bootcss.com/#css-syntax)
+- [前端开发规范手册](http://zhibimo.com/read/Ashu/front-end-style-guide/index.html)
 
 
 
