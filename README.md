@@ -2,10 +2,9 @@
 
 1. [文件目录](#catolog)
 2. [基本规则](#basic)
-3. html
-4. css
-5. javascript
-6. 文件目录
+3. [html](#html)
+4. [css](#css)
+5. [javascript](#js)
 
 
 ## 前言
@@ -22,46 +21,30 @@ src/
       java/
       resources/
       webapp/
-         images/
+         images/             //图片目录
+            platform/        //pc端
+            wapapp/          //微信端
+         scripts/            //js目录
             platform/
-               （pc-图片）
+               tool          //外部插件目录
             wapapp/
-               （wx-图片）
-         scripts/
-            platform/
-               （pc-js）
-            wapapp/
-               （wx-js）
-         styles/
+         styles/             //css目录
             palotform/
-               （pc-css）
             wapapp/
-               （wx-css）
          WEB-INF/
             lib/
-            page/
-               platform/  
-                  (pc-jsp)
-               webapp/
-                  （wx-jsp）
+            page/            //页面目录
+               platform/     //pc端
+               webapp/       //微信端
                   
 ```
 
-页面文件都统一在`src/main/webapp/` 里面
+目前的项目都有有 `platform` 与 `wapapp`,对应 `pc端` 与 `微信端`
 
-目录如下：
-- `images`             --图片
-- `scripts`            --js文件
-- `styles`             --样式文件
-- `WEB-INF/page`       --页面文件
-
-目前的项目有 `platform` 与 `wapapp`,对应 `pc端` 与 `微信端`
-
-如：合康诊所PC端的页面就在`page/platform`里面，对应的js文件在`scripts/platform`里面，css与图片亦是如此。
-
+所有的目录文件只能放在规定的地方，绝不允许为图一时之快为乱放！
 
 - 文件命名统一用小写字母与中划线的组合，如 `people-detail.js` `hk-base.css`
-- 插件统一放在 `scripts/tool` 里面 
+- 外部插件统一放在 `scripts/tool` 里面
 
 
 <a name="basic"></a>
@@ -87,53 +70,40 @@ src/
 <!-- good -->
 <title>合康医生</title>
 ```
+
 ### 注释
 
 - HTML
 
 
 ``` html 
-<!-- 模块注释 -->
-<div class="article-list">
+<!-- 新闻列表模块 -->
+<div class="m-news g-mod"
 ...
-</div>
+<!-- /新闻列表模块 -->
 
-<!--
-@name: 区块注释
-@description: Style of top bar drop down menu.
-@author: Ashu(Aaaaaashu@gmail.com)
--->
-<div class="drop-down-menu">
+<!-- 排行榜模块 -->
+<div class="m-topic g-mod"
 ...
-</div>
+<!-- /排行榜模块 -->
 ```
+
+> 注释内容左右两边保留和注释符号有1个空格位，在注释内容内不允许再出现中划线“-”，某些浏览器会报错。
+> 注释风格保持与原生HTML的语法相似：成对出现 `<!-- comment --><!-- /comment -->`
 
 - CSS （组件块和子组件块以及声明块之间使用一空行分隔，子组件块之间三空行分隔；）
 
 ``` css
 
-/* ==========================================================================
-   组件块
- ============================================================================ */
-
-/* 子组件块
- ============================================================================ */
-.selector {
-  padding: 15px;
-  margin-bottom: 15px;
-}
+/* 普通注释 */
 
 
-
-/* 子组件块
- ============================================================================ */
-.selector-secondary {
-  display: block; /* 注释*/
-}
-
-.selector-three {
-  display: span;
-}
+/**
+ * 模块: m-detail
+ * 描述：酒店详情模块
+ * 应用：page detail, info and etc...etc
+ */
+ 
 ``` 
 
 - javascript
@@ -169,12 +139,75 @@ function foo(p1, p2, p3) {
  
 ```
 
+### 命名 （html/css）
+- 命名必须由单词、中划线或数字组成（不要用下划线）
+- 不允许使用拼音（约定俗成的除外，如：youku, baidu），尤其是缩写的拼音、拼音与英文的混合。
+- 不依据`表现形式`来命名,可根据 `内容` 与 `功能` 来命名
+```
+不推荐： left, right, center, red, black
+
+推荐：nav, aside, news, type, search
+```
+- 命名缩写时，要保证缩写后还能较为清晰保持原单词所能表述的意思，使用业界熟知的或者约定俗成的。
+```
+不推荐
+navigation   =>  navi
+header       =>  head
+description  =>  des
+
+推荐：
+navigation   =>  nav
+header       =>  hd
+description  =>  desc
+```
+
+<a name="html"></a>
 ## HTML
+
+### 格式
+- 将每个块元素、列表元素或表格元素都放在新行
+- inline元素视情况换行，以长度不超过编辑器一屏为宜
+- 每个子元素都需要相对其父级缩进（两个空格）
+
+``` html
+/* bad */
+<div><h1>asdas</h1><p>dff<em>asd</em>asda<span>sds</span>dasdasd</p></div>
+
+/* good */
+<div>
+    <h1>asdas</h1>
+    <p>dff<em>asd</em>asda<span>sds</span>dasdasd</p>
+</div>
+```
+
+### 模块化
+- 每个模块必须有一个模块名；
+- 每个模块的基本组成部分应该一致；
+- 模块的子节点类名需带上模块名（防止模块间嵌套时产生不必要的覆盖）；
+- 孙辈节点无需再带模块名。
+
+``` html
+<section class="m-detail">
+    <header class="m-detail-hd">
+        <h1 class="title">模块标题</h1>
+    </header>
+    <div class="m-detail-bd">
+        <p class="info">一些实际内容</p>
+    </div>
+    <div class="m-detail-bt">
+        <p class="info">另一些实际内容</p>
+    </div>
+    <footer class="m-detail-ft">
+        <a href="#" class="more">更多</a>
+    </footer>
+</section>
+```
+
 
 ### class 与 id
 - class 应以功能或内容命名，不以表现形式命名；
 - class 与 id 单词字母小写，多个单词组成时，采用中划线-分隔；
-- 使用唯一的 id 作为 Javascript hook, 同时避免创建无样式信息的 class，命名格式用'j-hook'形式
+- 用于js操作的class或id，命名前面都必须加上 `j-` ，如'j-hook'形式。
 
 ``` html
 <!-- bad -->
@@ -229,6 +262,8 @@ HTML5 规范中 disabled、checked、selected 等属性不用设置值。
 </select>
 ```
 
+
+<a name="css"></a>
 ## CSS
 
 ###规范说明
@@ -345,6 +380,8 @@ HTML5 规范中 disabled、checked、selected 等属性不用设置值。
 }
 ```
 
+
+<a name="js"></a>
 ## JavaScript
 
 ### 注释
