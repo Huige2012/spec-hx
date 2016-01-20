@@ -1,7 +1,7 @@
 # hx前端编码规范 
 
 1. [文件目录](#catolog)
-2. 基本规则
+2. [基本规则](#basic)
 3. html
 4. css
 5. javascript
@@ -64,7 +64,7 @@ src/
 - 插件统一放在 `scripts/tool` 里面 
 
 
-
+<a name="basic"></a>
 ## 基本规则：
 
 ### 结构、样式、行为分离
