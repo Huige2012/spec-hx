@@ -62,6 +62,8 @@ src/
 
 确保文档和模板只包含 HTML 结构，样式都放到样式表里，行为都放到脚本里。
 
+html页面里，css文件放顶部，js放底部。
+
 
 ### 缩进
 
@@ -168,6 +170,7 @@ navigation   =>  nav
 header       =>  hd
 description  =>  desc
 ```
+
 
 <a name="html"></a>
 ## HTML
