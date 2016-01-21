@@ -51,7 +51,7 @@ src/
 
 所有的目录文件只能放在规定的地方，绝不允许为图一时之快为乱放！
 
-- 文件命名统一用小写字母与中划线的组合，如 `people-detail.js` `hk-base.css`
+- 文件命名统一用 `Camel`命名法，如 `peopleDetail.js` `hkBase.css`
 - 外部插件统一放在 `scripts/tool` 里面
 
 
