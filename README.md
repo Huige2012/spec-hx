@@ -13,6 +13,14 @@
 
 > 黄金定律: 不管有多少人共同参与同一项目，一定要确保每一行代码都像是同一个人编写的。
 
+## 基本信息
+
+| 公司       | 广州合谐医疗科技   |
+| --------   | --------  |
+|  编写人    | 庄楚辉 |
+| 当前版本   |   1.0 beta   | 
+| 创建日期   |   2016-01-22    | 
+
 <a name="catalog"></a>
 ## 文件目录
 ```
@@ -490,7 +498,7 @@ var TargetState = {
 ### 参考
 - [编码规范](http://codeguide.bootcss.com/#css-syntax)
 - [前端开发规范手册](http://zhibimo.com/read/Ashu/front-end-style-guide/index.html)
-
+- [HTML/CSS开发规范指南](https://github.com/doyoe/html-css-guide)
 
 
 
